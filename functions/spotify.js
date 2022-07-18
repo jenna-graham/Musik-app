@@ -36,8 +36,6 @@ exports.handler = async (event, context) => {
       console.error(error);
     });
 
-  console.log(accessToken);
-
 
   const pleaseWork = `https://api.spotify.com/v1/search?type=artist&q=beyonce`;
 
@@ -49,7 +47,7 @@ exports.handler = async (event, context) => {
   })
     .then((res) => res.json())
     .then(json => {
-      console.log('testing json', json);
+      console.log(json);
     })
     .then(json => {
       return {
