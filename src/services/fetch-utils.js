@@ -16,8 +16,8 @@ export async function signInUser(email, password) {
 
 export async function searchArtists(name) {
   const raw = await fetch(`/.netlify/functions/spotify?name=${name}`);
-  const data = await raw.json();
-  console.log(data);
+  const { artists } = await raw.json();
+  console.log(artists.items);
 
-  return data;
+  return artists;
 }
