@@ -16,7 +16,7 @@ export default function ArtistList({ artists }) {
                     
                   {console.log(image)}
 
-                  {image.height > 600 && image.height < 700 && <img src={image.url}/>}</div>)}
+                  {image.height > 500 && image.height < 900 && image.length !== 0 && <img src={image.url}/>}</div>)}
               </div>
             </Link>
           </div>
