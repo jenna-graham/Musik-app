@@ -26,33 +26,42 @@ exports.handler = async (event, context) => {
     body: `grant_type=refresh_token&refresh_token=${refreshToken}&redirect_uri=${encodeURI(process.env.URL,
       +'/.netlify/functions/callback')}`,
   };
-  const accessToken = await fetch(tokenEndPoint, options)
   
-    .then((res) => res.json())
-    .then((json) => {
-      return json.access_token;
+  try {
+    const res = await fetch(tokenEndPoint, options);
+    const json = await res.json();
+    
+    const pleaseWork = `https://api.spotify.com/v1/search?type=artist&q=beyonce`;
+    
+    return fetch(`${pleaseWork}`, {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${json.access_token}`,
+      },
+
     })
-    .catch((error) => {
-      console.error(error);
-    });
+      .then((res) => res.json())
+      .then(json => {
+        return {
+          statusCode: 200,
+          headers,
+          body: JSON.stringify(json)
+        };
+      });
 
-
-  const pleaseWork = `https://api.spotify.com/v1/search?type=artist&q=beyonce`;
-
-  return fetch(`${pleaseWork}`, {
-    method: 'GET',
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  })
-    .then((res) => res.json())
-    .then(json => {
-      console.log(json);
-      return {
-        statusCode: 200,
-        headers,
-        body: JSON.stringify(json)
-      };
-    });
+  } catch (error) {
+    console.error(error);
+  }
+  
+  
+  // const accessToken = await fetch(tokenEndPoint, options);
+  // .then((res) => res.json())
+  // .then((json) => {
+  //     return json.access_token;
+  //   })
+  //   .catch((error) => {
+  //       console.error(error);
+  //     });
+      
     
 };

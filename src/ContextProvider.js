@@ -19,7 +19,8 @@ export default function ContextProvider({ children }) {
 
   async function handleArtistSearch(name) {
     const artists = await searchArtists(name);
-    setArtists(artists);
+    setArtists(artists.items);
+    
   }
 
 
