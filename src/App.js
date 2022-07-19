@@ -11,6 +11,8 @@ import Auth from './Auth';
 import SearchPage from './SearchPage';
 import { useDataContext } from './ContextProvider';
 
+import './App.css';
+
 export default function App() {
   const { user, setUser } = useDataContext();
   return (

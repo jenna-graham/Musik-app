@@ -7,7 +7,8 @@ const dataContext = createContext();
 export default function ContextProvider({ children }) {
   const [user, setUser] = useState(getUser());
   const [artists, setArtists] = useState([]);
-
+  
+  console.log(artists);
 
   const stateAndSetters = { 
     user, 
@@ -18,8 +19,8 @@ export default function ContextProvider({ children }) {
   }; 
 
   async function handleArtistSearch(name) {
-    const artists = await searchArtists(name);
-    setArtists(artists);
+    const artist = await searchArtists(name);
+    setArtists(artist.items);
   }
 
 

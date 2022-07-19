@@ -14,10 +14,10 @@ export async function signInUser(email, password) {
   return user;
 }
 
-export async function searchArtists() {
-  const raw = await fetch(`/.netlify/functions/spotify`);
-  const data = await raw.json();
-  console.log(data);
+export async function searchArtists(name) {
+  const raw = await fetch(`/.netlify/functions/spotify?name=${name}`);
+  const { artists } = await raw.json();
+  console.log(artists.items);
 
-  return data;
+  return artists;
 }

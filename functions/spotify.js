@@ -35,9 +35,9 @@ exports.handler = async (event, context) => {
     .catch((error) => {
       console.error(error);
     });
+  console.log(event);
 
-
-  const pleaseWork = `https://api.spotify.com/v1/search?type=artist&q=beyonce`;
+  const pleaseWork = `https://api.spotify.com/v1/search?type=artist&q=${event.queryStringParameters.name}`;
 
   return fetch(`${pleaseWork}`, {
     method: 'GET',
