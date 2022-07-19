@@ -1,5 +1,5 @@
 import { useState, useContext, createContext } from 'react';
-import { getUser, searchArtists } from './services/fetch-utils';
+import { getArtist, getUser, searchArtists } from './services/fetch-utils';
 
 
 const dataContext = createContext();
@@ -7,6 +7,7 @@ const dataContext = createContext();
 export default function ContextProvider({ children }) {
   const [user, setUser] = useState(getUser());
   const [artists, setArtists] = useState([]);
+  const [singleArtist, setSingleArtist] = useState([]);
   
   console.log(artists);
 
@@ -15,7 +16,9 @@ export default function ContextProvider({ children }) {
     setUser, 
     artists, 
     setArtists,  
-    handleArtistSearch
+    handleArtistSearch,
+    handleFetchArtist,
+    singleArtist
   }; 
 
   async function handleArtistSearch(name) {
@@ -23,7 +26,12 @@ export default function ContextProvider({ children }) {
     setArtists(artist.items);
   }
 
+  async function handleFetchArtist(id) {
+    const artists = await getArtist(id);
+    setSingleArtist(artists);
+  }
 
+  console.log(artists);
 
   
   return <dataContext.Provider value={stateAndSetters}>
