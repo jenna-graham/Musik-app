@@ -6,15 +6,14 @@ export default function ArtistList({ artists }) {
   return (
     <div>
       {
-        artists && artists && 
         artists.map((artist, i) => (
           <div key={artist.id + i} className="artist">
             <Link to={`ArtistDetails/${artist.id}`}>
               <h3>{artist.name}</h3>
-              
-              {/* <div>{artist.images.map((image, i) => 
-                <div key={image.height + i}><img src={image.url}/></div>)}
-              </div> */}
+             
+              <div>{artist.images.map((image, i) => 
+                <div key={image.height + i}>{image.height === 320 && <img src={image.url}/>}</div>)}
+              </div>
             </Link>
           </div>
         ))
