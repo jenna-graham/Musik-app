@@ -21,3 +21,27 @@ export async function searchArtists(name) {
 
   return artists;
 }
+
+export async function getFavorites(id) {
+  if (id) {
+    const { body } = await client.from('favorite_artists').select('*').match({ user_id: id });
+    return body;
+  } else {
+    const { body } = await client
+      .from('favorite_artists')
+      .select('*')
+      .match({ user_id: getUser().id });
+    return body;
+  }
+}
+
+export async function addFavorite(favorite) {
+  const { body } = await client.from('favorite_artists').insert(favorite);
+
+  return body;
+}
+export async function deleteFavorite(id) {
+  const { body } = await client.from('favorite_artists').delete().match({ id }).single();
+
+  return body;
+}
