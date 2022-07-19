@@ -3,17 +3,22 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect,
   Link
 } from 'react-router-dom';
 
 import Auth from './Auth';
+import SearchPage from './SearchPage';
+import { useDataContext } from './ContextProvider';
 
 export default function App() {
+  const { user, setUser } = useDataContext();
   return (
     <Router>
       <div>
         <nav>
           <ul>
+
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -29,15 +34,14 @@ export default function App() {
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/Auth">
-            <Auth />
+          <Route exact path="/">
+            {user ? <Redirect to="/artists" /> : <Auth />}
           </Route>
-          <Route path="/users">
-            {/* <Users /> */}
-          </Route>
-          <Route path="/">
-            {/* <Home /> */}
-          </Route>
+          <Route exact path="/artists">
+            {!user ? <Redirect to="/" /> : <SearchPage />}
+          </Route>       
+        
+
         </Switch>
       </div>
     </Router>

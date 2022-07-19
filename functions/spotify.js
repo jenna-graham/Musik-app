@@ -48,12 +48,11 @@ exports.handler = async (event, context) => {
     .then((res) => res.json())
     .then(json => {
       console.log(json);
-    })
-    .then(json => {
       return {
         statusCode: 200,
         headers,
         body: JSON.stringify(json)
       };
     });
+    
 };
