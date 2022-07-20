@@ -1,18 +1,16 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-  Link
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 
 import Auth from './Auth';
 import SearchPage from './SearchPage';
 import { useDataContext } from './ContextProvider';
 
 import './App.css';
+
+import FavoritesPage from './FavoritesPage';
+
 import ArtistDetails from './ArtistDetails';
+
 
 export default function App() {
   const { user, setUser } = useDataContext();
@@ -21,7 +19,7 @@ export default function App() {
       <div>
         <nav>
           <ul>
-
+            {user && <li> {user.email}</li>}
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -29,7 +27,7 @@ export default function App() {
               <Link to="/Auth">Sign In</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/favorites">View Your Favorites</Link>
             </li>
           </ul>
         </nav>
@@ -42,11 +40,18 @@ export default function App() {
           </Route>
           <Route exact path="/artists">
             {!user ? <Redirect to="/" /> : <SearchPage />}
+
+          </Route>
+          <Route exact path="/favorites">
+            {!user ? <Redirect to="/" /> : <FavoritesPage />}
+          </Route>
+
           </Route>  
           <Route exact path="/artist/:id">
             {!user ? <Redirect to="/" /> : <ArtistDetails />}
           </Route>    
         
+
 
         </Switch>
       </div>
