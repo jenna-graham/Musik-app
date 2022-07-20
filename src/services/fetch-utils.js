@@ -27,3 +27,11 @@ export async function getArtist(id) {
   const data = await raw.json();
   return data;
 }
+
+export async function getAlbums(id) {
+  const raw = await fetch(`/.netlify/functions/album?id=${id}`);
+  const { albums } = await raw.json();
+
+
+  return albums;
+}
