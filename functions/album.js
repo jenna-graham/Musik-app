@@ -35,9 +35,8 @@ exports.handler = async (event, context) => {
     .catch((error) => {
       console.error(error);
     });
-  console.log(event);
 
-  const pleaseWork = `https://api.spotify.com/v1/artists${event.queryStringParameters.id}/albums`;
+  const pleaseWork = `https://api.spotify.com/v1/artists/${event.queryStringParameters.id}/albums`;
 
   return fetch(`${pleaseWork}`, {
     method: 'GET',
@@ -47,7 +46,7 @@ exports.handler = async (event, context) => {
   })
     .then((res) => res.json())
     .then(json => {
-      console.log(json);
+      console.log('ARTIST', json);
       return {
         statusCode: 200,
         headers,

@@ -17,7 +17,6 @@ export async function signInUser(email, password) {
 export async function searchArtists(name) {
   const raw = await fetch(`/.netlify/functions/spotify?name=${name}`);
   const { artists } = await raw.json();
-  // console.log(artists.items);
 
   return artists;
 }
@@ -55,9 +54,9 @@ export async function getArtist(id) {
 
 export async function getAlbums(id) {
   const raw = await fetch(`/.netlify/functions/album?id=${id}`);
-  const { albums } = await raw.json();
+  const { items } = await raw.json();
+  console.log(items, 'FROM FETCH');
 
-
-  return albums;
+  return items;
 }
 
