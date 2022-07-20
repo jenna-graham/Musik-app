@@ -64,8 +64,6 @@ export default function ContextProvider({ children }) {
     setAlbums(albums);
   }
 
-  console.log(artists);
-
 
   async function handleDeleteFavorite(id) {
     await deleteFavorite(id);
