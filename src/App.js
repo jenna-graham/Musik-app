@@ -10,8 +10,12 @@ import './App.css';
 import FavoritesPage from './FavoritesPage';
 
 import ArtistDetails from './ArtistDetails';
+
+import AboutPage from './services/AboutPage';
+
 import HomePage from './HomePage';
 import { logOut } from './services/fetch-utils';
+
 
 
 export default function App() {
@@ -39,7 +43,11 @@ export default function App() {
               <Link to="/favorites">View Your Favorites</Link>
             </li>
             <li>
+
+              <Link to="/AboutPage">Meet the Developers</Link>
+
               {user && <button onClick={handleLogOut}>Logout</button>}
+
             </li>
           </ul>
         </nav>
@@ -68,7 +76,9 @@ export default function App() {
           <Route exact path="/artist/:id">
             {!user ? <Redirect to="/" /> : <ArtistDetails />}
           </Route>    
-        
+          <Route exact path="/AboutPage">
+            <AboutPage />
+          </Route>
 
 
         </Switch>
