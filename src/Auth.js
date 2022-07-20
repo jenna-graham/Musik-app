@@ -1,24 +1,30 @@
-import { signInUser, signUpUser } from './services/fetch-utils';
+import { addUserName, signInUser, signUpUser } from './services/fetch-utils';
 import { useState } from 'react';
 import { useDataContext } from './ContextProvider';
 
 export default function Auth() {
-  const { setUser, handleProfileName, setUserProfile } = useDataContext();
+  const { setUser, setUserProfile } = useDataContext();
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
   const [userNameInput, setUserNameInput] = useState('');
 
+  
+
   async function handleSignUp(e) {
     e.preventDefault();
     const user = await signUpUser(signUpEmail, signUpPassword);
+    const userName = await addUserName(userNameInput);
+    setUserProfile(userName);
     setUser(user);
   }
 
   async function handleSignIn(e) {
     e.preventDefault();
     const user = await signInUser(signInEmail, signInPassword);
+    const userName = await addUserName(userNameInput);
+    setUserProfile(userName);
     setUser(user);
   }
 
@@ -41,11 +47,12 @@ export default function Auth() {
           <input type="password" value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)}/>
         </label>
         <button>Sign Up</button>
+        <section>
+          <label>UserName</label>
+          <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)}/>
+          
+        </section>
       </form>
-      <section>
-        <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)}/>
-        <button onClick={() => handleProfileName(userNameInput)}>Add User Name</button>
-      </section>
     </div>
   );
 }

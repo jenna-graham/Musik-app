@@ -9,7 +9,8 @@ import {
   deleteFavorite,
   getAlbums,
   getArtist,
-  addUserName
+  addUserName,
+  getUserProfile
 } from './services/fetch-utils';
 
 
@@ -22,6 +23,7 @@ export default function ContextProvider({ children }) {
   const [singleArtist, setSingleArtist] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [userProfile, setUserProfile] = useState([]);
+  const [userData, setUserData] = useState([]);
 
   const stateAndSetters = { 
     user, 
@@ -39,7 +41,9 @@ export default function ContextProvider({ children }) {
     handleDeleteFavorite,
     handleProfileName,
     userProfile,
-    setUserProfile
+    setUserProfile,
+    userData,
+    handleUserProfile
   }; 
 
 
@@ -78,6 +82,11 @@ export default function ContextProvider({ children }) {
   async function handleProfileName(userName) {
     const userProfile = await addUserName(userName);
     setUserProfile(userProfile);
+  }
+
+  async function handleUserProfile(userName) {
+    const userData = await getUserProfile(userName);
+    setUserData(userData);
   }
 
 

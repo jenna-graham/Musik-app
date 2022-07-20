@@ -15,9 +15,15 @@ export async function signInUser(email, password) {
 }
 
 export async function addUserName(userName) {
-  const { body } = await client.from('user_profile').insert(userName);
+  const data = await client.from('user_profile').insert({ user_name: userName });
 
+  return data;
+}
+
+export async function getUserProfile(userName) {
+  const { body } = await client.from('user_profile').select('*').match({ user_name: userName });
   return body;
+
 }
 
 export async function searchArtists(name) {

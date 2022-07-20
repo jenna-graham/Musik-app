@@ -2,12 +2,15 @@ import React from 'react';
 import { useState } from 'react';
 import ArtistList from './ArtistList';
 import { useDataContext } from './ContextProvider';
+import UserProfile from './UserProfile';
 
 
 export default function SearchPage() {
 
   const { handleArtistSearch, artists } = useDataContext();
   const [name, setName] = useState('');
+
+  
 
   return (
     <div>
@@ -18,6 +21,7 @@ export default function SearchPage() {
       <div>
         <ArtistList artists={artists} />
       </div>
+      <UserProfile />
     </div>
   );
 }
