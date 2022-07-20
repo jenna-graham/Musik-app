@@ -55,7 +55,6 @@ export async function getArtist(id) {
 export async function getAlbums(id) {
   const raw = await fetch(`/.netlify/functions/album?id=${id}`);
   const { items } = await raw.json();
-  console.log(items, 'FROM FETCH');
 
   return items;
 }
