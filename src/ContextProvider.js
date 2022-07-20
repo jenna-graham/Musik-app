@@ -6,10 +6,9 @@ import {
   getFavorites,
   addFavorite,
   deleteFavorite,
+  getAlbums,
+  getArtist
 } from './services/fetch-utils';
-
-import { getAlbums, getArtist, getUser, searchArtists } from './services/fetch-utils';
-
 
 
 const dataContext = createContext();
@@ -20,8 +19,6 @@ export default function ContextProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
   const [singleArtist, setSingleArtist] = useState([]);
   const [albums, setAlbums] = useState([]);
-  
-  console.log(artists);
 
   const stateAndSetters = { 
     user, 

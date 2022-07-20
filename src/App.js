@@ -46,7 +46,6 @@ export default function App() {
             {!user ? <Redirect to="/" /> : <FavoritesPage />}
           </Route>
 
-          </Route>  
           <Route exact path="/artist/:id">
             {!user ? <Redirect to="/" /> : <ArtistDetails />}
           </Route>    
