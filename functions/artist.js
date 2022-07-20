@@ -47,7 +47,6 @@ exports.handler = async (event, context) => {
   })
     .then((res) => res.json())
     .then(json => {
-      console.log(json);
       return {
         statusCode: 200,
         headers,
