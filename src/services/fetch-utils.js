@@ -59,3 +59,6 @@ export async function getAlbums(id) {
   return items;
 }
 
+export async function logOut() {
+  await client.auth.signOut();
+}
