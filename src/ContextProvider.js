@@ -19,8 +19,6 @@ export default function ContextProvider({ children }) {
   const [favorites, setFavorites] = useState([]);
   const [singleArtist, setSingleArtist] = useState([]);
   const [albums, setAlbums] = useState([]);
-  
-  console.log(artists);
 
   const stateAndSetters = { 
     user, 
