@@ -11,13 +11,13 @@ export default function AlbumsList({ singleArtist }) {
   }, [singleArtist.id]);
   
   return (
-    <div>
-      <div>HELLO FROM ALBUM LIST</div>
-      {/* {
-        albums.map((album, i) => <div key={album.id + i}>
+    <div className="album-list">
+      { albums && albums.length &&
+        albums.map((album, i) => <div className="album" key={album.id + i}>
           <h3>{album.name}</h3>
+          <div className='album-image'>{album.images && album.images[0] && <img src={album.images[0].url} />}</div>
         </div>)
-      } */}
+      }
     </div>
   );
 }
