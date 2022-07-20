@@ -14,6 +14,12 @@ export async function signInUser(email, password) {
   return user;
 }
 
+export async function addUserName(userName) {
+  const { body } = await client.from('user_profile').insert(userName);
+
+  return body;
+}
+
 export async function searchArtists(name) {
   const raw = await fetch(`/.netlify/functions/spotify?name=${name}`);
   const { artists } = await raw.json();

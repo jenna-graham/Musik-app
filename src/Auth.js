@@ -3,11 +3,12 @@ import { useState } from 'react';
 import { useDataContext } from './ContextProvider';
 
 export default function Auth() {
-  const { setUser } = useDataContext();
+  const { setUser, handleProfileName, setUserProfile } = useDataContext();
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
+  const [userNameInput, setUserNameInput] = useState('');
 
   async function handleSignUp(e) {
     e.preventDefault();
@@ -41,6 +42,10 @@ export default function Auth() {
         </label>
         <button>Sign Up</button>
       </form>
+      <section>
+        <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)}/>
+        <button onClick={() => handleProfileName(userNameInput)}>Add User Name</button>
+      </section>
     </div>
   );
 }
