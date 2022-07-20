@@ -32,7 +32,7 @@ export default function ArtistList({ artists }) {
                       // eslint-disable-next-line indent
                       name: artist.name,
                       // eslint-disable-next-line indent
-                      image: artist.images && artist.images[0] && artist.images[0].url,
+                      images: artist.images && artist.images[0] && artist.images[0].url,
                       // eslint-disable-next-line indent
                     })
               }
