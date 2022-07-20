@@ -10,11 +10,23 @@ import './App.css';
 import FavoritesPage from './FavoritesPage';
 
 import ArtistDetails from './ArtistDetails';
+
 import AboutPage from './services/AboutPage';
+
+import HomePage from './HomePage';
+import { logOut } from './services/fetch-utils';
+
 
 
 export default function App() {
-  const { user } = useDataContext();
+  const { user, setUser } = useDataContext();
+
+  async function handleLogOut() {
+    await logOut();
+
+    setUser('');
+  }
+
   return (
     <Router>
       <div>
@@ -25,13 +37,17 @@ export default function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/Auth">Sign In</Link>
+              <Link to="/auth">Sign In</Link>
             </li>
             <li>
               <Link to="/favorites">View Your Favorites</Link>
             </li>
             <li>
+
               <Link to="/AboutPage">Meet the Developers</Link>
+
+              {user && <button onClick={handleLogOut}>Logout</button>}
+
             </li>
           </ul>
         </nav>
@@ -40,7 +56,14 @@ export default function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route exact path="/">
-            {user ? <Redirect to="/artists" /> : <Auth />}
+            {user ? <Redirect to="/artists" /> : <HomePage />}
+          </Route>
+          <Route exact path ="/auth">
+            {
+              user 
+                ? <Redirect to="/artists" />
+                : <Auth />
+            }
           </Route>
           <Route exact path="/artists">
             {!user ? <Redirect to="/" /> : <SearchPage />}
