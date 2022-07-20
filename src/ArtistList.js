@@ -18,7 +18,10 @@ export default function ArtistList({ artists }) {
           favorites && favorites.find((favorite) => favorite.name === artist.name);
         return (
           <div key={artist.id + i} className="artist">
-            <Link to={`/artists/${artist.id}`}>
+
+         
+            <Link to={`/artist/${artist.id}`}>
+
               <h3>{artist.name}</h3>
               <div>{artist.images && artist.images[0] && <img src={artist.images[0].url} />}</div>
             </Link>

@@ -6,7 +6,11 @@ import SearchPage from './SearchPage';
 import { useDataContext } from './ContextProvider';
 
 import './App.css';
+
 import FavoritesPage from './FavoritesPage';
+
+import ArtistDetails from './ArtistDetails';
+
 
 export default function App() {
   const { user, setUser } = useDataContext();
@@ -36,10 +40,19 @@ export default function App() {
           </Route>
           <Route exact path="/artists">
             {!user ? <Redirect to="/" /> : <SearchPage />}
+
           </Route>
           <Route exact path="/favorites">
             {!user ? <Redirect to="/" /> : <FavoritesPage />}
           </Route>
+
+          </Route>  
+          <Route exact path="/artist/:id">
+            {!user ? <Redirect to="/" /> : <ArtistDetails />}
+          </Route>    
+        
+
+
         </Switch>
       </div>
     </Router>
