@@ -35,3 +35,20 @@ ol, ul {
   list-style: none;
 }
 
+.album-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.album {
+  text-align: center;
+
+}
+
+.album-image img {
+  border-radius: 0;
+  
+}

@@ -42,7 +42,6 @@ export default function ContextProvider({ children }) {
     setArtists(artist.items);
   }
 
-
   async function handleGetFavorites(id) {
     const favorites = await getFavorites(id);
     setFavorites(favorites);
@@ -63,7 +62,6 @@ export default function ContextProvider({ children }) {
     const albums = await getAlbums(id);
     setAlbums(albums);
   }
-
 
   async function handleDeleteFavorite(id) {
     await deleteFavorite(id);
