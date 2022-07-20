@@ -8,7 +8,7 @@ export default function ArtistList({ artists }) {
       {
         artists.map((artist, i) => (
           <div key={artist.id + i} className="artist">
-            <Link to={`ArtistDetails/${artist.id}`}>
+            <Link to={`/artist/${artist.id}`}>
               <h3>{artist.name}</h3>
               {/* <img src={artist.images[0].url} /> */}
               <div>{artist.images.map((image, i) => 

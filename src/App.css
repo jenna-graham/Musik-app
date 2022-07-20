@@ -16,3 +16,6 @@ img {
   object-fit: cover;
   border-radius: 50%;
 }
+ol, ul {
+  list-style: none;
+}
