@@ -13,7 +13,7 @@ import ArtistDetails from './ArtistDetails';
 
 
 export default function App() {
-  const { user, setUser } = useDataContext();
+  const { user } = useDataContext();
   return (
     <Router>
       <div>

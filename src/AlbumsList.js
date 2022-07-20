@@ -8,7 +8,7 @@ export default function AlbumsList({ singleArtist }) {
   
   useEffect(() => {
     handleFetchAlbums(singleArtist.id);
-  }, [singleArtist.id]);
+  }, [singleArtist.id]); // eslint-disable-line
   
   return (
     <div className="album-list">
