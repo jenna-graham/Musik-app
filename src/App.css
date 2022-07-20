@@ -16,3 +16,22 @@ img {
   object-fit: cover;
   border-radius: 50%;
 }
+.fave-list {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+}
+.fave-artist {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid;
+  padding: 10px;
+  margin: 10px;
+}
+
+ol, ul {
+  list-style: none;
+}
+

@@ -17,7 +17,47 @@ export async function signInUser(email, password) {
 export async function searchArtists(name) {
   const raw = await fetch(`/.netlify/functions/spotify?name=${name}`);
   const { artists } = await raw.json();
-  console.log(artists.items);
+  // console.log(artists.items);
 
   return artists;
 }
+
+
+export async function getFavorites(id) {
+  if (id) {
+    const { body } = await client.from('favorite_artists').select('*').match({ user_id: id });
+    return body;
+  } else {
+    const { body } = await client
+      .from('favorite_artists')
+      .select('*')
+      .match({ user_id: getUser().id });
+    return body;
+  }
+}
+
+export async function addFavorite(favorite) {
+  const { body } = await client.from('favorite_artists').insert(favorite);
+
+  return body;
+}
+export async function deleteFavorite(id) {
+  const { body } = await client.from('favorite_artists').delete().match({ id }).single();
+
+  return body;
+}
+
+export async function getArtist(id) {
+  const raw = await fetch(`/.netlify/functions/artist?id=${id}`);
+  const data = await raw.json();
+  return data;
+}
+
+export async function getAlbums(id) {
+  const raw = await fetch(`/.netlify/functions/album?id=${id}`);
+  const { albums } = await raw.json();
+
+
+  return albums;
+}
+
