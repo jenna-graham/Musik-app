@@ -52,3 +52,21 @@ ol, ul {
   border-radius: 0;
   
 }
+
+.about-developers {
+  display: flex;
+}
+
+.single-dev {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid 2px black;
+  margin: 5px;
+  padding: 5px;
+}
+
+.dev-p {
+  text-align: center;
+  text-align: justify;
+}
