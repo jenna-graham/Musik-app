@@ -2,12 +2,12 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDataContext } from './ContextProvider';
+import AlbumsList from './AlbumsList';
 
 
 export default function ArtistDetails() {
   const { handleFetchArtist, singleArtist } = useDataContext();
   const { id } = useParams();
-  console.log(id);
 
   useEffect(() => {
     handleFetchArtist(id);
@@ -25,7 +25,7 @@ export default function ArtistDetails() {
         <li>{singleArtist.genres && singleArtist.genres[2]}</li>
        
       </ul>
-
+      <AlbumsList singleArtist={singleArtist}/>
 
     </div>
   );

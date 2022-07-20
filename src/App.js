@@ -23,6 +23,8 @@ export default function App() {
     setUser('');
   }
 
+  const { user } = useDataContext();
+
   return (
     <Router>
       <div>
