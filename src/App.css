@@ -70,3 +70,8 @@ ol, ul {
   text-align: center;
   text-align: justify;
 }
+
+.dev-link {
+  border: 1px solid;
+  margin: 5px;
+}
