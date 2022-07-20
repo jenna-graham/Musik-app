@@ -34,7 +34,6 @@ export default function ContextProvider({ children }) {
     favorites,
     handleAddFavorite,
     handleDeleteFavorite,
-    
   }; 
 
 
@@ -73,6 +72,7 @@ export default function ContextProvider({ children }) {
     const updatedFavorite = await getFavorites();
     setFavorites(updatedFavorite);
   }
+
 
   return <dataContext.Provider value={stateAndSetters}>{children}</dataContext.Provider>;
 }
