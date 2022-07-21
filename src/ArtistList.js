@@ -23,7 +23,7 @@ export default function ArtistList({ artists }) {
             <Link to={`/artist/${artist.id}`}>
 
               <h3>{artist.name}</h3>
-              <div>{artist.images && artist.images[0] && <img src={artist.images[0].url} />}</div>
+              <div>{artist.images && artist.images[0] && artist.images.length ? <img src={artist.images[0].url} /> : <img src='/crab.jpg' />}</div>
             </Link>
             <button
               onClick={() =>
