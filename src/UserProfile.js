@@ -1,10 +1,11 @@
 import React from 'react';
 import { useDataContext } from './ContextProvider';
 import { useState, useEffect } from 'react';
-
+import Select from 'react-select';
 
 export default function UserProfile() {
   const { userData, handleUserProfile } = useDataContext();
+  const [user, setUser] = useState();
 
   
   
@@ -14,11 +15,16 @@ export default function UserProfile() {
 
   return (
     <div>
-      {
-        userData.map((user, i) => <div key={user.user_id + i}>
-          
-        </div>)
+      HELLO <Select onChange={(e) => console.log(e) } options={
+        userData.map((user) => {
+          return {
+            label: user.user_name,
+            value: user.user_id,
+          };
+        })
       }
+      />
+      
     </div>
   );
 }
