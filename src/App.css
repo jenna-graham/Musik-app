@@ -208,7 +208,9 @@ a:visited {
 }
 
 .home-page {
-  background-image: url(./Müsík\ HomePage.jpg);
+
+
+  background-image: url(./Hello.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -236,8 +238,8 @@ h3 {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  
 }
+
 .home-button {
   margin-bottom: 250px;
   margin-right: 100px;
@@ -247,3 +249,10 @@ h3 {
   width: 200px;
   margin-top: 200px;
 }
+
+.search-input {
+  height: 30px;
+  width: 250px;
+
+}
+
