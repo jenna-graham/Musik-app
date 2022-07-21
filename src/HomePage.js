@@ -9,7 +9,7 @@ export default function HomePage() {
   };
 
   return (
-    <div>
+    <div className="home-page">
       <button onClick={routeChange}>Search Artists</button>
     </div>
   );

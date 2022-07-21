@@ -1,16 +1,22 @@
-import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ArtistList from './ArtistList';
 import { useDataContext } from './ContextProvider';
-
+import { searchArtists } from './services/fetch-utils';
 
 export default function SearchPage() {
-
-  const { handleArtistSearch, artists } = useDataContext();
+  const { handleArtistSearch, artists, setArtists } = useDataContext();
   const [name, setName] = useState('');
 
+  useEffect(() => {
+    async function fetchArtists() {
+      const newArtists = await searchArtists('A');
+      setArtists(newArtists.items);
+    }
+    fetchArtists();
+  }, []); //eslint-disable-line
+
   return (
-    <div>
+    <div className="search">
       <section>
         <input onChange={(e) => setName(e.target.value)} />
         <button onClick={() => handleArtistSearch(name)}>Search Artists</button>
