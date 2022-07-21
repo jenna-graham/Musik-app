@@ -6,7 +6,6 @@ import { searchArtists } from './services/fetch-utils';
 export default function SearchPage() {
   const { handleArtistSearch, artists, setArtists } = useDataContext();
   const [name, setName] = useState('');
-  console.log(artists);
 
   useEffect(() => {
     async function fetchArtists() {
