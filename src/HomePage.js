@@ -1,6 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
+import MaterialButtons from './ContainedButton';
+
 export default function HomePage() {
   const history = useHistory();
   const routeChange = () => {
@@ -10,9 +12,7 @@ export default function HomePage() {
 
   return (
     <div className="home-page">
-      <button className="home-button" onClick={routeChange}>
-        Search Artists
-      </button>
+      <MaterialButtons onClick={routeChange}>Search Artists</MaterialButtons>
     </div>
   );
 }

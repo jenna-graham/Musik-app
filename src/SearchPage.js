@@ -3,6 +3,8 @@ import ArtistList from './ArtistList';
 import { useDataContext } from './ContextProvider';
 import { searchArtists } from './services/fetch-utils';
 
+import MaterialButtons from './ContainedButton';
+
 export default function SearchPage() {
   const { handleArtistSearch, artists, setArtists } = useDataContext();
   const [name, setName] = useState('');
@@ -19,7 +21,7 @@ export default function SearchPage() {
     <div className="search">
       <section>
         <input onChange={(e) => setName(e.target.value)} />
-        <button onClick={() => handleArtistSearch(name)}>Search Artists</button>
+        <MaterialButtons onClick={() => handleArtistSearch(name)}>Search Artists</MaterialButtons>
       </section>
       <div>  
         <ArtistList artists={artists} />
