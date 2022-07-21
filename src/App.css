@@ -5,8 +5,6 @@
   display: flex;
   flex-direction: column;
 
-
-  
 }
 body {
   background-image: url(./AdobeStock_230218181_Preview.png);
@@ -23,15 +21,37 @@ header {
 }
 .auth {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  border: 3px ridge;
-  padding: 20px;
-
+  align-items: center;
+  padding: 10px;
 }
 
-
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.25;
+  padding: 20px;
+  margin: 20px;
+  border: 3px solid white;
+  height: 300px;
+  margin-top: 200px;
+}
+label {
+  display: inline-block;
+  color: white;
+  justify-content: space-between;
+  margin: 5px;
+  text-align: right;
+}
+input {
+  margin: 10px;
+  justify-content: space-between;
+}
+h2 {
+  color: white;
+  padding-bottom: 10px;
+}
 .artist-list {
   display: flex;
   flex-wrap: wrap;

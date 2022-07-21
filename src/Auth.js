@@ -30,52 +30,51 @@ export default function Auth() {
 
   return (
     <div className="auth">
-      <form className="auth-form" onSubmit={handleSignIn}>
-        <label>
-          Email
-          <input
-            value={signInEmail}
-            type="email"
-            onChange={(e) => setSignInEmail(e.target.value)}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={signInPassword}
-            onChange={(e) => setSignInPassword(e.target.value)}
-          />
-        </label>
-        <button>Sign In</button>
+      <form onSubmit={handleSignIn}>
+        <div className="auth-form">
+          <h2>Sign In</h2>
+          <label>
+          Email:
+            <input
+              value={signInEmail}
+              type="email"
+              onChange={(e) => setSignInEmail(e.target.value)}
+            />
+          </label>
+          <label>
+          Password:
+            <input
+              type="password"
+              value={signInPassword}
+              onChange={(e) => setSignInPassword(e.target.value)}
+            />
+          </label>
+          <button>Sign In</button>
+        </div>
+
       </form>
-
       <form onSubmit={handleSignUp}>
-        <label>UserName</label>
-        <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)}/>
-        <label>Email
-          <input value={signUpEmail} type="email" onChange={(e) => setSignUpEmail(e.target.value)}/>
+        <div className="auth-form">
+          <h2>Sign Up</h2>
+          <label>
+            Username:
+            <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)}/>
+          </label>
+          <label>
+            Email:
+            <input value={signUpEmail} type="email" onChange={(e) => setSignUpEmail(e.target.value)}/>
+          </label>
+          <label>
+          Password:
+            <input
+              type="password"
+              value={signUpPassword}
+              onChange={(e) => setSignUpPassword(e.target.value)}
+            />
+          </label>
+          <button>Sign Up</button>
+        </div>
 
-      <form className="auth-form" onSubmit={handleSignUp}>
-        <label>
-          Email
-          <input
-            value={signUpEmail}
-            type="email"
-            onChange={(e) => setSignUpEmail(e.target.value)}
-          />
-
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={signUpPassword}
-            onChange={(e) => setSignUpPassword(e.target.value)}
-          />
-        </label>
-        <button>Sign Up</button>
-          
       </form>
     </div>
   );
