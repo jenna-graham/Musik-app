@@ -15,6 +15,7 @@ export default function ArtistDetails() {
 }, [id]); //eslint-disable-line
 
   return (
+    
     <div className="artist-details">
       <div className="single-artist">
         <div>{singleArtist.images && singleArtist.images[0] && <img src={singleArtist.images[0].url} />}</div>
@@ -29,7 +30,9 @@ export default function ArtistDetails() {
         </div>
       </div>
       <div>
+        
         <AlbumsList singleArtist={singleArtist}/>
+          
       </div>
     </div>
   );

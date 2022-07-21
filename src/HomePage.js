@@ -14,6 +14,5 @@ export default function HomePage() {
     <div className="home-page">
       <MaterialButtons onClick={routeChange}>Search Artists</MaterialButtons>
     </div>
-    
   );
 }

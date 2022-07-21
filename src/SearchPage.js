@@ -9,9 +9,6 @@ export default function SearchPage() {
   const { handleArtistSearch, artists, setArtists } = useDataContext();
   const [name, setName] = useState('');
 
-
-  
-
   useEffect(() => {
     async function fetchArtists() {
       const newArtists = await searchArtists('A');
@@ -20,14 +17,13 @@ export default function SearchPage() {
     fetchArtists();
   }, []); //eslint-disable-line
 
-
   return (
     <div className="search">
       <section>
         <input onChange={(e) => setName(e.target.value)} />
         <MaterialButtons onClick={() => handleArtistSearch(name)}>Search Artists</MaterialButtons>
       </section>
-      <div>
+      <div>  
         <ArtistList artists={artists} />
       </div>
       
