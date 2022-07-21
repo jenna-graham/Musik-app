@@ -16,6 +16,8 @@ import AboutPage from './AboutPage';
 import HomePage from './HomePage';
 import { logOut } from './services/fetch-utils';
 
+import OutlinedButtons from './OutlinedButton';
+
 export default function App() {
   const { user, setUser } = useDataContext();
 
@@ -42,7 +44,7 @@ export default function App() {
                 <li>
                   <Link to="/AboutPage">Meet the Developers</Link>
                 </li>
-                {user && <button onClick={handleLogOut}>Logout</button>}
+                {user && <OutlinedButtons onClick={handleLogOut}>Logout</OutlinedButtons>}
               </ul>
             </div>
           </nav>
