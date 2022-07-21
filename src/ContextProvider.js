@@ -1,6 +1,5 @@
 import { useState, useContext, createContext } from 'react';
 
-
 import {
   getUser,
   searchArtists,
@@ -24,6 +23,7 @@ export default function ContextProvider({ children }) {
   const [albums, setAlbums] = useState([]);
   const [userProfile, setUserProfile] = useState([]);
   const [userData, setUserData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const stateAndSetters = { 
     user, 
@@ -43,13 +43,16 @@ export default function ContextProvider({ children }) {
     userProfile,
     setUserProfile,
     userData,
-    handleUserProfile
+    handleUserProfile,
+    loading,
   }; 
 
 
   async function handleArtistSearch(name) {
+    setLoading(true);
     const artist = await searchArtists(name);
     setArtists(artist.items);
+    setLoading(false);
   }
 
   async function handleGetFavorites(id) {
@@ -64,12 +67,16 @@ export default function ContextProvider({ children }) {
   }
 
   async function handleFetchArtist(id) {
+    setLoading(true);
     const artists = await getArtist(id);
+    setLoading(false);
     setSingleArtist(artists);
   }
 
   async function handleFetchAlbums(id) {
+    setLoading(true);
     const albums = await getAlbums(id);
+    setLoading(false);
     setAlbums(albums);
   }
 

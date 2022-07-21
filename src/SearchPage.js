@@ -25,7 +25,7 @@ export default function SearchPage() {
         <input onChange={(e) => setName(e.target.value)} />
         <button onClick={() => handleArtistSearch(name)}>Search Artists</button>
       </section>
-      <div>
+      <div>  
         <ArtistList artists={artists} />
       </div>
       
