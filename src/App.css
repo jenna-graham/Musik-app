@@ -231,6 +231,7 @@ h3 {
     border-radius: 50%;
   }
 
+
 .home-page {
   display: flex;
   align-items: flex-end;
@@ -240,4 +241,9 @@ h3 {
 .home-button {
   margin-bottom: 250px;
   margin-right: 100px;
+
+.dropdown{
+  width: 200px;
+  margin-top: 200px;
+
 }
