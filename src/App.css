@@ -208,6 +208,8 @@ a:visited {
 }
 
 .home-page {
+
+
   background-image: url(./Hello.jpg);
   background-size: cover;
   background-attachment: fixed;
@@ -243,10 +245,10 @@ h3 {
   margin-right: 100px;
 }
 
-
 .dropdown{
   width: 200px;
   margin-top: 200px;
+}  
 
 }
 .search-input {
