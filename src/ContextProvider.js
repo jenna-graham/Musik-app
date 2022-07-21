@@ -9,7 +9,8 @@ import {
   getAlbums,
   getArtist,
   addUserName,
-  getUserProfile
+  getUserProfile,
+  getUserProfileById
 } from './services/fetch-utils';
 
 
@@ -24,6 +25,8 @@ export default function ContextProvider({ children }) {
   const [userProfile, setUserProfile] = useState([]);
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const [profileName, setProfileName] = useState({});
 
   const stateAndSetters = { 
     user, 
@@ -45,8 +48,14 @@ export default function ContextProvider({ children }) {
     userData,
     handleUserProfile,
     loading,
+    profileName,
+    handleGetUserProfileById
   }; 
 
+  async function handleGetUserProfileById(id) {
+    const profileName = await getUserProfileById(id);
+    setProfileName(profileName);
+  }
 
   async function handleArtistSearch(name) {
     setLoading(true);

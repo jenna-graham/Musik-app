@@ -19,7 +19,7 @@ import { logOut } from './services/fetch-utils';
 import OutlinedButtons from './OutlinedButton';
 
 export default function App() {
-  const { user, setUser } = useDataContext();
+  const { user, setUser, userData } = useDataContext();
 
   async function handleLogOut() {
     await logOut();
@@ -34,7 +34,7 @@ export default function App() {
           <nav>
             <div className="links">
               <ul>
-                {user && <li> Welcome {user.email}</li>}
+                {user && <li> Welcome {userData.user_name}</li>}
                 <li>
                   <Link to="/artists">Search Artists</Link>
                 </li>

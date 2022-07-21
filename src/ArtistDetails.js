@@ -3,11 +3,11 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDataContext } from './ContextProvider';
 import AlbumsList from './AlbumsList';
-import DeleteButtons from './DeleteButton';
 
 export default function ArtistDetails() {
   const { handleFetchArtist, singleArtist, favorites, handleDeleteFavorite, handleAddFavorite } = useDataContext();
   const { id } = useParams();
+
 
   useEffect(() => {
     handleFetchArtist(id);

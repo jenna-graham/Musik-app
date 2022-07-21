@@ -23,7 +23,13 @@ export async function addUserName(userName) {
 export async function getUserProfile() {
   const { body } = await client.from('user_profile').select('*');
   return body;
+}
 
+export async function getUserProfileById(id) {
+  const { body } = await client.from('user_profile').select('*').match({ user_id: id }).single();
+  console.log(body, 'from fetch');
+  return body;
+  
 }
 
 export async function searchArtists(name) {
