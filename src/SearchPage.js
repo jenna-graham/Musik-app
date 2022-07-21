@@ -7,6 +7,9 @@ export default function SearchPage() {
   const { handleArtistSearch, artists, setArtists } = useDataContext();
   const [name, setName] = useState('');
 
+
+  
+
   useEffect(() => {
     async function fetchArtists() {
       const newArtists = await searchArtists('A');
@@ -14,6 +17,7 @@ export default function SearchPage() {
     }
     fetchArtists();
   }, []); //eslint-disable-line
+
 
   return (
     <div className="search">
@@ -24,6 +28,7 @@ export default function SearchPage() {
       <div>
         <ArtistList artists={artists} />
       </div>
+      
     </div>
   );
 }

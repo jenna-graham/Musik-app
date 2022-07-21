@@ -12,5 +12,6 @@ export default function HomePage() {
     <div className="home-page">
       <button onClick={routeChange}>Search Artists</button>
     </div>
+    
   );
 }
