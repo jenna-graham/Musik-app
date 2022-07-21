@@ -225,3 +225,8 @@ h3 {
     object-fit: cover;
     border-radius: 50%;
   }
+
+.dropdown{
+  width: 200px;
+  margin-top: 200px;
+}
