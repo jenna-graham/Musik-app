@@ -1,16 +1,24 @@
 import React from 'react';
 import { useDataContext } from './ContextProvider';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 
 export default function UserProfile() {
   const { userData, handleUserProfile } = useDataContext();
-  const [userInput, setUserInput] = useState('');
-  console.log(userData);
+
+  
+  
+  useEffect(() =>{
+    handleUserProfile();
+  }, []); //eslint-disable-line
 
   return (
     <div>
-      <input onChange={(e) => setUserInput(e.target.value)}/>
-      <button onClick={() => handleUserProfile(userInput)}>Submit</button>
+      {
+        userData.map((user, i) => <div key={user.user_id + i}>
+          
+        </div>)
+      }
     </div>
   );
 }

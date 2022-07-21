@@ -20,8 +20,8 @@ export async function addUserName(userName) {
   return data;
 }
 
-export async function getUserProfile(userName) {
-  const { body } = await client.from('user_profile').select('*').match({ user_name: userName });
+export async function getUserProfile() {
+  const { body } = await client.from('user_profile').select('*');
   return body;
 
 }

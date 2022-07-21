@@ -40,6 +40,8 @@ export default function Auth() {
         <button>Sign In</button>
       </form>
       <form onSubmit={handleSignUp}>
+        <label>UserName</label>
+        <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)}/>
         <label>Email
           <input value={signUpEmail} type="email" onChange={(e) => setSignUpEmail(e.target.value)}/>
         </label>
@@ -47,11 +49,7 @@ export default function Auth() {
           <input type="password" value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)}/>
         </label>
         <button>Sign Up</button>
-        <section>
-          <label>UserName</label>
-          <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)}/>
           
-        </section>
       </form>
     </div>
   );
