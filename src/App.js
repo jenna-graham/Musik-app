@@ -30,19 +30,21 @@ export default function App() {
       <div className="App">
         <header>
           <nav>
-            <ul>
-              {user && <li> Welcome {user.email}</li>}
-              <li>
-                <Link to="/artists">Search Artists</Link>
-              </li>
-              <li>
-                <Link to="/favorites">View Your Favorites</Link>
-              </li>
-              <li>
-                <Link to="/AboutPage">Meet the Developers</Link>
-              </li>
-              {user && <button onClick={handleLogOut}>Logout</button>}
-            </ul>
+            <div className="links">
+              <ul>
+                {user && <li> Welcome {user.email}</li>}
+                <li>
+                  <Link to="/artists">Search Artists</Link>
+                </li>
+                <li>
+                  <Link to="/favorites">View Your Favorites</Link>
+                </li>
+                <li>
+                  <Link to="/AboutPage">Meet the Developers</Link>
+                </li>
+                {user && <button onClick={handleLogOut}>Logout</button>}
+              </ul>
+            </div>
           </nav>
         </header>
 
