@@ -22,22 +22,42 @@ export default function Auth() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSignIn}>
-        <label>Email
-          <input value={signInEmail} type="email" onChange={(e) => setSignInEmail(e.target.value)}/>
+    <div className="auth">
+      <form className="auth-form" onSubmit={handleSignIn}>
+        <label>
+          Email
+          <input
+            value={signInEmail}
+            type="email"
+            onChange={(e) => setSignInEmail(e.target.value)}
+          />
         </label>
-        <label>Password
-          <input type="password" value={signInPassword} onChange={(e) => setSignInPassword(e.target.value)}/>
+        <label>
+          Password
+          <input
+            type="password"
+            value={signInPassword}
+            onChange={(e) => setSignInPassword(e.target.value)}
+          />
         </label>
         <button>Sign In</button>
       </form>
-      <form onSubmit={handleSignUp}>
-        <label>Email
-          <input value={signUpEmail} type="email" onChange={(e) => setSignUpEmail(e.target.value)}/>
+      <form className="auth-form" onSubmit={handleSignUp}>
+        <label>
+          Email
+          <input
+            value={signUpEmail}
+            type="email"
+            onChange={(e) => setSignUpEmail(e.target.value)}
+          />
         </label>
-        <label>Password
-          <input type="password" value={signUpPassword} onChange={(e) => setSignUpPassword(e.target.value)}/>
+        <label>
+          Password
+          <input
+            type="password"
+            value={signUpPassword}
+            onChange={(e) => setSignUpPassword(e.target.value)}
+          />
         </label>
         <button>Sign Up</button>
       </form>

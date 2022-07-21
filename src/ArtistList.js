@@ -18,30 +18,32 @@ export default function ArtistList({ artists }) {
           favorites && favorites.find((favorite) => favorite.name === artist.name);
         return (
           <div key={artist.id + i} className="artist">
-
-         
             <Link to={`/artist/${artist.id}`}>
-
-              <h3>{artist.name}</h3>
-              <div>{artist.images && artist.images[0] && <img src={artist.images[0].url} />}</div>
+              <div className="artist-image">
+                {artist.images && artist.images[0] && <img src={artist.images[0].url} />}
+              </div>
             </Link>
-            <button
-              onClick={() =>
-                alreadyFave
-                  ? handleDeleteFavorite(alreadyFave.id)
-                  : handleAddFavorite({
-                      // eslint-disable-next-line indent
-                      artist_id: artist.id,
-                      // eslint-disable-next-line indent
-                      name: artist.name,
-                      // eslint-disable-next-line indent
-                      images: artist.images && artist.images[0] && artist.images[0].url,
-                      // eslint-disable-next-line indent
-                    })
-              }
-            >
-              {alreadyFave ? '❤️' : '♡'}
-            </button>
+            <div className="favorite-click">
+              <h3>{artist.name}</h3>
+              <button
+                className="fave-button"
+                onClick={() =>
+                  alreadyFave
+                    ? handleDeleteFavorite(alreadyFave.id)
+                    : handleAddFavorite({
+                        // eslint-disable-next-line indent
+                        artist_id: artist.id,
+                        // eslint-disable-next-line indent
+                        name: artist.name,
+                        // eslint-disable-next-line indent
+                        images: artist.images && artist.images[0] && artist.images[0].url,
+                        // eslint-disable-next-line indent
+                      })
+                }
+              >
+                {alreadyFave ? '❤️' : '♡'}
+              </button>
+            </div>
           </div>
         );
       })}

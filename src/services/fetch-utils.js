@@ -21,7 +21,6 @@ export async function searchArtists(name) {
   return artists;
 }
 
-
 export async function getFavorites(id) {
   if (id) {
     const { body } = await client.from('favorite_artists').select('*').match({ user_id: id });
