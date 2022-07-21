@@ -10,8 +10,9 @@ export default function HomePage() {
 
   return (
     <div className="home-page">
-      <button onClick={routeChange}>Search Artists</button>
+      <button className="home-button" onClick={routeChange}>
+        Search Artists
+      </button>
     </div>
-    
   );
 }
