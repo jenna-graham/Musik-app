@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDataContext } from './ContextProvider';
 import { Link } from 'react-router-dom';
-import UserProfile from './UserProfile';
+
 import DeleteButtons from './DeleteButton';
 
 export default function FavoritesPage() {
