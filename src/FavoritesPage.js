@@ -6,7 +6,7 @@ export default function FavoritesPage() {
   const { favorites, handleDeleteFavorite } = useDataContext();
 
   return (
-    <div className>
+    <div>
       <div className="fave-list">
         {favorites.map((favorite, i) => (
           <div className="fave-artist" key={favorite.name + i}>
