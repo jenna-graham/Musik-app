@@ -17,7 +17,7 @@ import HomePage from './HomePage';
 import { logOut } from './services/fetch-utils';
 
 export default function App() {
-  const { user, setUser } = useDataContext();
+  const { user, setUser, userData } = useDataContext();
 
   async function handleLogOut() {
     await logOut();
@@ -31,7 +31,7 @@ export default function App() {
         <header>
           <nav>
             <ul>
-              {user && <li> Welcome {user.email}</li>}
+              {user && <li> Welcome {userData.user_name}</li>}
               <li>
                 <Link to="/artists">Search Artists</Link>
               </li>
