@@ -20,7 +20,12 @@ export default function ArtistList({ artists }) {
           <div key={artist.id + i} className="artist">
             <Link to={`/artist/${artist.id}`}>
               <div className="artist-image">
-                {artist.images && artist.images[0] && artist.images.length ? <img src={artist.images[0].url} /> : <img src='crab.jpg' />};
+                {artist.images && artist.images[0] && artist.images.length ? (
+                  <img src={artist.images[0].url} />
+                ) : (
+                  <img src="MüsíkHomePage.jpg" />
+                )}
+                ;
               </div>
             </Link>
             <div className="favorite-click">

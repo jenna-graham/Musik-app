@@ -20,13 +20,16 @@ export default function SearchPage() {
   return (
     <div className="search">
       <section>
-        <input onChange={(e) => setName(e.target.value)} />
+        <input
+          className="search-input"
+          placeholder="search artists"
+          onChange={(e) => setName(e.target.value)}
+        />
         <MaterialButtons onClick={() => handleArtistSearch(name)}>Search Artists</MaterialButtons>
       </section>
-      <div>  
+      <div>
         <ArtistList artists={artists} />
       </div>
-      
     </div>
   );
 }
