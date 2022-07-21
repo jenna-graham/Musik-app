@@ -6,11 +6,11 @@ export default function FavoritesPage() {
   const { favorites, handleDeleteFavorite } = useDataContext();
 
   return (
-    <div>
+    <div className>
       <div className="fave-list">
         {favorites.map((favorite, i) => (
           <div className="fave-artist" key={favorite.name + i}>
-            <Link>
+            <Link to ={`/artist/${favorite.artist_id}`}>
               <h3>{favorite.name}</h3>
               <img src={favorite.images} />
             </Link>
