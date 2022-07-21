@@ -2,6 +2,9 @@ import { addUserName, signInUser, signUpUser } from './services/fetch-utils';
 import { useState } from 'react';
 import { useDataContext } from './ContextProvider';
 
+import BasicButtons from './AuthButtons';
+import { SignInButtons } from './AuthButtons';
+
 export default function Auth() {
   const { setUser, setUserProfile } = useDataContext();
   const [signUpEmail, setSignUpEmail] = useState('');
@@ -49,7 +52,7 @@ export default function Auth() {
               onChange={(e) => setSignInPassword(e.target.value)}
             />
           </label>
-          <button>Sign In</button>
+          <SignInButtons onClick={handleSignIn}>Sign In</SignInButtons>
         </div>
 
       </form>
@@ -72,7 +75,7 @@ export default function Auth() {
               onChange={(e) => setSignUpPassword(e.target.value)}
             />
           </label>
-          <button>Sign Up</button>
+          <BasicButtons onClick={handleSignUp}>Sign Up</BasicButtons>
         </div>
 
       </form>
