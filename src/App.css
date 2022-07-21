@@ -208,7 +208,7 @@ a:visited {
 }
 
 .home-page {
-  background-image: url(./Müsík\ HomePage.jpg);
+  background-image: url(./hello.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -241,6 +241,7 @@ h3 {
 .home-button {
   margin-bottom: 250px;
   margin-right: 100px;
+}
 
 .dropdown{
   width: 200px;
