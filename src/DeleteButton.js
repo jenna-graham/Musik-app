@@ -9,7 +9,7 @@ export default function DeleteButtons({ onClick, variant = 'outlined' }) {
       onClick={onClick}
       style={{
         backgroundColor: '#21b6af27',
-        color: 'black',
+        color: 'rgb(168, 164, 164)',
         width: '250px',
         height: '50px',
       }}

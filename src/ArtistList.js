@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDataContext } from './ContextProvider';
+import FavoritesButton from './FavoritesButton';
 
 export default function ArtistList({ artists }) {
   const { handleAddFavorite, favorites, handleDeleteFavorite, handleGetFavorites } =
@@ -29,7 +30,8 @@ export default function ArtistList({ artists }) {
             </Link>
             <div className="favorite-click">
               <h3>{artist.name}</h3>
-              <button
+              <FavoritesButton
+                alreadyFave={alreadyFave}
                 className="fave-button"
                 onClick={() =>
                   alreadyFave
@@ -46,7 +48,7 @@ export default function ArtistList({ artists }) {
                 }
               >
                 {alreadyFave ? '❤️' : '♡'}
-              </button>
+              </FavoritesButton>
             </div>
           </div>
         );

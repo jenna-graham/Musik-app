@@ -12,6 +12,7 @@ export default function HomePage() {
 
   return (
     <div className="home-page">
+      <h1 className="tagline">Discover | Experience | Connect</h1>
       <MaterialButtons className="home-button" onClick={routeChange}>
         Search Artists
       </MaterialButtons>
