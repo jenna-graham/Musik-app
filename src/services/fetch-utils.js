@@ -27,7 +27,6 @@ export async function getUserProfile() {
 
 export async function getUserProfileById(id) {
   const { body } = await client.from('user_profile').select('*').match({ user_id: id }).single();
-  console.log(body, 'from fetch');
   return body;
   
 }
