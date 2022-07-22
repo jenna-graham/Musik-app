@@ -248,11 +248,22 @@ h3 {
 .dropdown {
   width: 200px;
   margin-top: 200px;
+}  
+
+.favorite-page{
+  display: flex;
 }
 
 .search-input {
   height: 30px;
   width: 250px;
+}
 
+
+h2{
+  align-content: center;
+  text-align: center;
+  border: 2px solid white;
+  height: 60px;
 }
 
