@@ -77,7 +77,7 @@ export default function AboutPage() {
         </div>
         <div className="single-dev">
           <h2>Sebastian Simek</h2>
-          <img className="dev-image" src="/crab.jpg" />
+          <img className="dev-image" src="/Sebastian.jpg" />
           <p className="dev-p">Sebastian is a Full Stack Software engineer based in Portland Oregon. Outside of coding he enjoys kayaking and playing tennis.</p> <br /> <br />
           <span>
             <a

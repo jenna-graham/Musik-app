@@ -195,6 +195,7 @@ ol, ul {
   margin: 5px;
   padding: 15px;
   width: 275px;
+  border-radius: 15px;
 }
 .single-dev img {
   margin: 10px;
