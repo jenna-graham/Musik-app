@@ -113,6 +113,7 @@ h2 {
   border: 2px solid white;
   padding: 10px;
   margin: 10px;
+  width: 250px;
 }
 
 .fave-artist img {
@@ -246,12 +247,19 @@ h3 {
 }
 
 .dropdown{
-  width: 200px;
-  margin-top: 200px;
+ width: 200px;
+ height: 30px;
 }  
+
+.dropdown-container{
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+}
 
 .favorite-page{
   display: flex;
+  justify-content: center;
 }
 
 .search-input {
@@ -260,10 +268,24 @@ h3 {
 }
 
 
-h2{
-  align-content: center;
+.test{
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-list{
   text-align: center;
-  border: 2px solid white;
-  height: 60px;
+  margin-top: 50px;
+}
+
+.friend-list h3{
+  margin-bottom: 25px;
+}
+
+.favorite-welcome{
+  display: flex;
+  justify-content: center;
+  color: white;
+  padding-bottom: 20px;
 }
 

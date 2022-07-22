@@ -6,7 +6,6 @@ export default function ConcertPage({ singleArtist }) {
   useEffect(() => {
     handleFetchConcerts(singleArtist.name);
   }, [singleArtist]); // eslint-disable-line
-  console.log(concerts.url);
 
   return (
     <div> 
