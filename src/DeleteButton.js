@@ -13,9 +13,6 @@ export default function DeleteButtons({ onClick, variant = 'outlined', margin = 
         width: '250px',
         height: '50px',
       }}
-      sx={{
-        margin: margin,
-      }}
       variant={variant}
       startIcon={<DeleteIcon />}
       color="success"
