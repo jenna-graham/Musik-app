@@ -5,10 +5,13 @@ export default function ConcertPage({ singleArtist }) {
   const { handleFetchConcerts, concerts } = useDataContext();
   useEffect(() => {
     handleFetchConcerts(singleArtist.name);
-  }, [singleArtist.name]); // eslint-disable-line
+  }, [singleArtist]); // eslint-disable-line
+  console.log(concerts.url);
 
   return (
-    <div>
+    <div> 
+      {
+      }
       <a href={concerts.url} target="blank">
         See {singleArtist.name} live!
       </a>
