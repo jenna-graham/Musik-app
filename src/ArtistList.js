@@ -25,7 +25,7 @@ export default function ArtistList({ artists }) {
                 ) : (
                   <img src="MüsíkHomePage.jpg" />
                 )}
-                ;
+                
               </div>
             </Link>
             <div className="favorite-click">
