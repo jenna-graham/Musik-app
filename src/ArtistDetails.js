@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDataContext } from './ContextProvider';
 import AlbumsList from './AlbumsList';
-
+import ConcertPage from './ConcertPage';
 
 export default function ArtistDetails() {
   const { handleFetchArtist, singleArtist } = useDataContext();
@@ -11,16 +11,19 @@ export default function ArtistDetails() {
 
   useEffect(() => {
     handleFetchArtist(id);
-
-}, [id]); //eslint-disable-line
+  }, [id]); //eslint-disable-line
 
   return (
-    
     <div className="artist-details">
       <div className="single-artist">
-        <div>{singleArtist.images && singleArtist.images[0] && <img src={singleArtist.images[0].url} />}</div>
+        <div>
+          {singleArtist.images && singleArtist.images[0] && (
+            <img src={singleArtist.images[0].url} />
+          )}
+        </div>
         <div className="single-artist-info">
           <h1>{singleArtist.name}</h1>
+          <ConcertPage singleArtist={singleArtist} />
           <h3>Genres:</h3>
           <ul>
             <li>{singleArtist.genres && singleArtist.genres[0]}</li>
@@ -30,9 +33,7 @@ export default function ArtistDetails() {
         </div>
       </div>
       <div>
-        
-        <AlbumsList singleArtist={singleArtist}/>
-          
+        <AlbumsList singleArtist={singleArtist} />
       </div>
     </div>
   );
