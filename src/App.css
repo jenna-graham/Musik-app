@@ -110,10 +110,12 @@ h2 {
   text-align: center;
   display: flex;
   flex-direction: column;
-  border: 2px solid white;
+  border: 1px solid white;
   padding: 10px;
   margin: 10px;
   width: 250px;
+  border-radius: 10px;
+
 }
 
 .fave-artist img {
