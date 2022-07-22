@@ -19,7 +19,7 @@ import { logOut } from './services/fetch-utils';
 import OutlinedButtons from './OutlinedButton';
 
 export default function App() {
-  const { user, setUser, userData } = useDataContext();
+  const { user, setUser } = useDataContext();
 
   async function handleLogOut() {
     await logOut();
