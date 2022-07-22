@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import ArtistList from './ArtistList';
 import { useDataContext } from './ContextProvider';
 import { searchArtists } from './services/fetch-utils';
-
-import MaterialButtons from './ContainedButton';
+import SearchButton from './SearchButton';
 
 export default function SearchPage() {
   const { handleArtistSearch, artists, setArtists } = useDataContext();
@@ -18,14 +17,14 @@ export default function SearchPage() {
   }, []); //eslint-disable-line
 
   return (
-    <div className="search">
-      <section>
+    <div>
+      <section className="search">
         <input
           className="search-input"
           placeholder="search artists"
           onChange={(e) => setName(e.target.value)}
         />
-        <MaterialButtons onClick={() => handleArtistSearch(name)}>Search Artists</MaterialButtons>
+        <SearchButton onClick={() => handleArtistSearch(name)}>Search Artists</SearchButton>
       </section>
       <div>
         <ArtistList artists={artists} />

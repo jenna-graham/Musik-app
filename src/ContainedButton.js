@@ -2,10 +2,21 @@ import React from 'react';
 
 import Button from '@mui/material/Button';
 
-export default function MaterialButtons({
-  onClick,
-}) {
+export default function MaterialButtons({ onClick }) {
   return (
-    <Button onClick={onClick} variant="contained" color='secondary'>Search Artist</Button>
+    <Button
+      variant="outlined"
+      style={{
+        backgroundColor: '#21b6afae',
+        color: 'black',
+        width: '200px',
+        height: '50px',
+        marginBottom: '200px',
+        marginRight: '100px',
+      }}
+      onClick={onClick}
+    >
+      Enter Site
+    </Button>
   );
 }

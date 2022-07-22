@@ -13,8 +13,6 @@ export default function Auth() {
   const [signInPassword, setSignInPassword] = useState('');
   const [userNameInput, setUserNameInput] = useState('');
 
-  
-
   async function handleSignUp(e) {
     e.preventDefault();
     const user = await signUpUser(signUpEmail, signUpPassword);
@@ -37,7 +35,7 @@ export default function Auth() {
         <div className="auth-form">
           <h2>Sign In</h2>
           <label>
-          Email:
+            Email:
             <input
               value={signInEmail}
               type="email"
@@ -45,30 +43,36 @@ export default function Auth() {
             />
           </label>
           <label>
-          Password:
+            Password:
             <input
               type="password"
               value={signInPassword}
               onChange={(e) => setSignInPassword(e.target.value)}
             />
           </label>
+          <br></br>
+          <br></br>
+          <br></br>
           <SignInButtons onClick={handleSignIn}>Sign In</SignInButtons>
         </div>
-
       </form>
       <form onSubmit={handleSignUp}>
         <div className="auth-form">
           <h2>Sign Up</h2>
           <label>
             Username:
-            <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)}/>
+            <input value={userNameInput} onChange={(e) => setUserNameInput(e.target.value)} />
           </label>
           <label>
             Email:
-            <input value={signUpEmail} type="email" onChange={(e) => setSignUpEmail(e.target.value)}/>
+            <input
+              value={signUpEmail}
+              type="email"
+              onChange={(e) => setSignUpEmail(e.target.value)}
+            />
           </label>
           <label>
-          Password:
+            Password:
             <input
               type="password"
               value={signUpPassword}
@@ -77,7 +81,6 @@ export default function Auth() {
           </label>
           <BasicButtons onClick={handleSignUp}>Sign Up</BasicButtons>
         </div>
-
       </form>
     </div>
   );
