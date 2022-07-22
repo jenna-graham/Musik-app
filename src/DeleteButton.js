@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
-export default function DeleteButtons({ onClick, variant = 'outlined', margin = '10px' }) {
+export default function DeleteButtons({ onClick, variant = 'outlined' }) {
   return (
     <Button
       className="delete-button"
@@ -12,9 +12,6 @@ export default function DeleteButtons({ onClick, variant = 'outlined', margin = 
         color: 'black',
         width: '250px',
         height: '50px',
-      }}
-      sx={{
-        margin: margin,
       }}
       variant={variant}
       startIcon={<DeleteIcon />}

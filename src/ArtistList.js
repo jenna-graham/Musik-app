@@ -25,12 +25,12 @@ export default function ArtistList({ artists }) {
                 ) : (
                   <img src="MüsíkHomePage.jpg" />
                 )}
-                
               </div>
             </Link>
             <div className="favorite-click">
               <h3>{artist.name}</h3>
               <button
+                className="fave-button"
                 onClick={() =>
                   alreadyFave
                     ? handleDeleteFavorite(alreadyFave.id)
