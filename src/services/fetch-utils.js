@@ -78,3 +78,9 @@ export async function getAlbums(id) {
 export async function logOut() {
   await client.auth.signOut();
 }
+export async function getConcerts(keyword) {
+  const raw = await fetch(`/.netlify/functions/ticketmaster?keyword=${keyword}`);
+  const { _embedded } = await raw.json();
+
+  return _embedded.attractions[0];
+}
