@@ -6,20 +6,19 @@ import AlbumsList from './AlbumsList';
 import ConcertPage from './ConcertPage';
 
 export default function ArtistDetails() {
-  const { handleFetchArtist, singleArtist, favorites, handleDeleteFavorite, handleAddFavorite } = useDataContext();
+  const { handleFetchArtist, singleArtist, favorites, handleDeleteFavorite, handleAddFavorite } =
+    useDataContext();
   const { id } = useParams();
-
 
   useEffect(() => {
     handleFetchArtist(id);
   }, [id]); //eslint-disable-line
 
   const alreadyFave =
-favorites && favorites.find((favorite) => favorite.name === singleArtist.name);
+    favorites && favorites.find((favorite) => favorite.name === singleArtist.name);
 
   return (
     <div className="artist-details">
-      
       <div className="single-artist">
         <div>
           {singleArtist.images && singleArtist.images[0] && (
@@ -41,14 +40,15 @@ favorites && favorites.find((favorite) => favorite.name === singleArtist.name);
               alreadyFave
                 ? handleDeleteFavorite(alreadyFave.id)
                 : handleAddFavorite({
-                        // eslint-disable-next-line indent
-                        artist_id: singleArtist.id,
-                        // eslint-disable-next-line indent
-                        name: singleArtist.name,
-                        // eslint-disable-next-line indent
-                        images: singleArtist.images && singleArtist.images[0] && singleArtist.images[0].url,
-                        // eslint-disable-next-line indent
-                      })
+                    // eslint-disable-next-line indent
+                    artist_id: singleArtist.id,
+                    // eslint-disable-next-line indent
+                    name: singleArtist.name,
+                    // eslint-disable-next-line indent
+                    images:
+                      singleArtist.images && singleArtist.images[0] && singleArtist.images[0].url,
+                    // eslint-disable-next-line indent
+                  })
             }
           >
             {alreadyFave ? '❤️' : '♡'}

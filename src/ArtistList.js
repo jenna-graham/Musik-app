@@ -31,7 +31,6 @@ export default function ArtistList({ artists }) {
             <div className="favorite-click">
               <h3>{artist.name}</h3>
               <button
-                className="fave-button"
                 onClick={() =>
                   alreadyFave
                     ? handleDeleteFavorite(alreadyFave.id)

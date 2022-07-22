@@ -12,7 +12,9 @@ export default function HomePage() {
 
   return (
     <div className="home-page">
-      <MaterialButtons onClick={routeChange}>Search Artists</MaterialButtons>
+      <MaterialButtons className="home-button" onClick={routeChange}>
+        Search Artists
+      </MaterialButtons>
     </div>
   );
 }
