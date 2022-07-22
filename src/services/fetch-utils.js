@@ -25,6 +25,12 @@ export async function getUserProfile() {
   return body;
 }
 
+export async function getUserProfileById(id) {
+  const { body } = await client.from('user_profile').select('*').match({ user_id: id }).single();
+  return body;
+  
+}
+
 export async function searchArtists(name) {
   const raw = await fetch(`/.netlify/functions/spotify?name=${name}`);
   const { artists } = await raw.json();
