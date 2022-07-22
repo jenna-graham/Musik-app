@@ -2,12 +2,14 @@ import React from 'react';
 
 import Button from '@mui/material/Button';
 
-import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/core';
+
+import { createTheme } from '@material-ui/core/styles';
 
 export default function OutlinedButtons({
   onClick,
 }) {
-  const theme = createMuiTheme({
+  const theme = createTheme({
     palette: {
       primary: {
         main: '#00700'

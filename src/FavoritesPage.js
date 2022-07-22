@@ -17,25 +17,31 @@ export default function FavoritesPage() {
  
 
   return (
-    <div className='favorite-page'>
-      <h2>{`Welcome to your Favorites Artists, ${profileName.user_name }`}</h2>
-
-      <div className="fave-list">
-        {favorites.map((favorite, i) => (
-          <div className="fave-artist" key={favorite.name + i}>
-            <Link to={`/artist/${favorite.artist_id}`}>
-              <h3>{favorite.name}</h3>
-              <img src={favorite.images} />
-            </Link>
-            <DeleteButtons onClick={() => handleDeleteFavorite(favorite.id)}>
+    <div className='test'>
+      <header className='favorite-welcome'>
+        <h1>{`Welcome to your Favorites Artists, ${profileName.user_name }!`}</h1>
+      </header>
+      <div className='favorite-page'>
+        <div className="fave-list">
+          {favorites.map((favorite, i) => (
+            <div className="fave-artist" key={favorite.name + i}>
+              <Link to={`/artist/${favorite.artist_id}`}>
+                <h3>{favorite.name}</h3>
+                <img src={favorite.images} />
+              </Link>
+              <DeleteButtons onClick={() => handleDeleteFavorite(favorite.id)}>
             Remove from Favorites
-            </DeleteButtons>
-          </div>
-        ))}
-        <div>
-          <UserProfile />
+              </DeleteButtons>
+            </div>
+          ))}
         </div>
       </div>
+      <div className='friend-list'> 
+        <h3>Who are your friends listening to?</h3>
+        <UserProfile />
+      </div>
+
     </div>
+
   );
 }
