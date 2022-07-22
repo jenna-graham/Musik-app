@@ -210,7 +210,7 @@ a:visited {
 .home-page {
 
 
-  background-image: url(./Hello.jpg);
+  background-image: url(./hello.jpg);
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
@@ -250,9 +250,11 @@ h3 {
   margin-top: 200px;
 }  
 
+
 .favorite-page{
   display: flex;
 }
+
 
 .search-input {
   height: 30px;

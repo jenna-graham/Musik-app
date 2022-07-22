@@ -11,8 +11,8 @@ import {
   addUserName,
   getUserProfile,
   getUserProfileById
+  getConcerts,
 } from './services/fetch-utils';
-
 
 const dataContext = createContext();
 
@@ -25,6 +25,8 @@ export default function ContextProvider({ children }) {
   const [userProfile, setUserProfile] = useState([]);
   const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [concerts, setConcert] = useState([]);
+
 
   const [profileName, setProfileName] = useState({});
 
@@ -33,6 +35,11 @@ export default function ContextProvider({ children }) {
     setUser, 
     artists, 
     setArtists,  
+  const stateAndSetters = {
+    user,
+    setUser,
+    artists,
+    setArtists,
     handleArtistSearch,
     handleFetchArtist,
     singleArtist,
@@ -56,6 +63,9 @@ export default function ContextProvider({ children }) {
     const profileName = await getUserProfileById(id);
     setProfileName(profileName);
   }
+    concerts,
+    handleFetchConcerts,
+  };
 
   async function handleArtistSearch(name) {
     setLoading(true);
@@ -105,6 +115,10 @@ export default function ContextProvider({ children }) {
     setUserData(userData);
   }
 
+  async function handleFetchConcerts(keyword) {
+    const concertInfo = await getConcerts(keyword);
+    setConcert(concertInfo);
+  }
 
   return <dataContext.Provider value={stateAndSetters}>{children}</dataContext.Provider>;
 }
