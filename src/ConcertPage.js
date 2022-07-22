@@ -8,9 +8,7 @@ export default function ConcertPage({ singleArtist }) {
   }, [singleArtist]); // eslint-disable-line
 
   return (
-    <div> 
-      {
-      }
+    <div className="artist-live">
       <a href={concerts.url} target="blank">
         See {singleArtist.name} live!
       </a>

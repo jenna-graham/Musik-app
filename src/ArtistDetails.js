@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useDataContext } from './ContextProvider';
 import AlbumsList from './AlbumsList';
 import ConcertPage from './ConcertPage';
+import FavoritesButton from './FavoritesButton';
 
 export default function ArtistDetails() {
   const { handleFetchArtist, singleArtist, favorites, handleDeleteFavorite, handleAddFavorite } =
@@ -34,7 +35,8 @@ export default function ArtistDetails() {
             <li>{singleArtist.genres && singleArtist.genres[1]}</li>
             <li>{singleArtist.genres && singleArtist.genres[2]}</li>
           </ul>
-          <button
+          <FavoritesButton
+            alreadyFave={alreadyFave}
             className="fave-button"
             onClick={() =>
               alreadyFave
@@ -52,7 +54,7 @@ export default function ArtistDetails() {
             }
           >
             {alreadyFave ? '❤️' : '♡'}
-          </button>
+          </FavoritesButton>
         </div>
       </div>
       <div>

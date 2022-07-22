@@ -21,7 +21,7 @@ export default function SearchPage() {
       <section className="search">
         <input
           className="search-input"
-          placeholder="search artists"
+          placeholder="Search Artists"
           onChange={(e) => setName(e.target.value)}
         />
         <SearchButton onClick={() => handleArtistSearch(name)}>Search Artists</SearchButton>

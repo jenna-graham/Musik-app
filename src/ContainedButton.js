@@ -12,7 +12,7 @@ export default function MaterialButtons({ onClick }) {
         width: '200px',
         height: '50px',
         marginBottom: '200px',
-        marginRight: '100px',
+        // marginRight: '700px',
       }}
       onClick={onClick}
     >

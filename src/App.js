@@ -34,7 +34,7 @@ export default function App() {
           <nav>
             <div className="links">
               <ul>
-                {user && <li> Welcome {userData.user_name}</li>}
+                {/* {user && <li> {`Welcome ${userData.user_name}`}</li>} */}
                 <li>
                   <Link to="/artists">Search Artists</Link>
                 </li>
@@ -42,7 +42,7 @@ export default function App() {
                   <Link to="/favorites">View Your Favorites</Link>
                 </li>
                 <li>
-                  <Link to="/AboutPage">Meet the Developers</Link>
+                  <Link to="/AboutPage">The Jams</Link>
                 </li>
                 {user && <OutlinedButtons onClick={handleLogOut}>Logout</OutlinedButtons>}
               </ul>

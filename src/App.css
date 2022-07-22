@@ -14,6 +14,10 @@ body {
   background-attachment: fixed;
   background-size: cover;
   color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.tagline {
+  margin-left: 200px;
 }
 
 header {
@@ -55,6 +59,10 @@ input {
 h2 {
   color: white;
   padding-bottom: 10px;
+}
+
+h1{
+  margin-bottom: 5px;
 }
 
 .artist-list {
@@ -151,6 +159,15 @@ h2 {
   margin: 20px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
+.artist-live {
+  background-color: rgba(19, 19, 19, 0.569);
+  padding: 10px;
+  margin-bottom: 10px;
+  color: black;
+  border-radius: 5px;
+  text-align: center;
+}
+
 
 ol, ul {
   list-style: none;
@@ -229,10 +246,11 @@ ol, ul {
   
 }
 a:link {
-  color: grey;
+  color: rgb(168, 164, 164);
   text-decoration: none;
   cursor: pointer;
 }
+
 a:visited {
   color: white;
 }
