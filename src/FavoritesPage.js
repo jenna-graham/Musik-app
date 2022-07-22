@@ -8,7 +8,6 @@ import UserProfile from './UserProfile';
 export default function FavoritesPage() {
   const { favorites, handleDeleteFavorite, handleGetFavorites, profileName, handleGetUserProfileById, user } = useDataContext();
   
-  console.log(profileName);
 
   useEffect(() => {
     handleGetFavorites();
