@@ -9,10 +9,10 @@ export default function MaterialButtons({ onClick }) {
       style={{
         backgroundColor: '#21b6afae',
         color: 'black',
-        width: '200px',
+        width: '250px',
         height: '50px',
-        marginBottom: '200px',
-        // marginRight: '700px',
+        marginBottom: '230px',
+        marginRight: '150px',
       }}
       onClick={onClick}
     >
