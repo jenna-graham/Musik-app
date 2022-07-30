@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDataContext } from './ContextProvider';
 import FavoritesButton from './FavoritesButton';
+import { isAlreadyAFave } from './utils';
 
 export default function ArtistList({ artists }) {
   const { handleAddFavorite, favorites, handleDeleteFavorite, handleGetFavorites } =
@@ -15,17 +16,16 @@ export default function ArtistList({ artists }) {
   return (
     <div className="artist-list">
       {artists.map((artist, i) => {
-        const alreadyFave =
-          favorites && favorites.find((favorite) => favorite.name === artist.name);
+        const alreadyFave = isAlreadyAFave(favorites, artist);
         return (
           <div key={artist.id + i} className="artist">
             <Link to={`/artist/${artist.id}`}>
               <div className="artist-image">
-                {artist.images && artist.images[0] && artist.images.length ? (
-                  <img src={artist.images[0].url} />
-                ) : (
-                  <img src="MüsíkHomePage.jpg" />
-                )}
+                {
+                  artist.images && artist.images[0] && artist.images.length 
+                    ? <img src={artist.images[0].url} />
+                    : <img src="MüsíkHomePage.jpg" />
+                }
               </div>
             </Link>
             <div className="favorite-click">

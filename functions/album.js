@@ -17,14 +17,18 @@ exports.handler = async (event, context) => {
 
   const tokenEndPoint = `https://accounts.spotify.com/api/token`;
 
+  const redirectTo = encodeURI(process.env.URL, +'/.netlify/functions/callback');
   const options = {
     method: 'POST',
     headers: {
       Authorization: `Basic ${auth}`,
       'Content-Type': 'application/x-www-form-urlencoded'
     },
-    body: `grant_type=refresh_token&refresh_token=${refreshToken}&redirect_uri=${encodeURI(process.env.URL,
-      +'/.netlify/functions/callback')}`,
+    // I just spent forever trying to figure out why we need the redirect_uri here. it's always bugged me! after all, we just make the request to callback.js exactly once, the first time you (the developer) get the token in the browser, then copies it into your .env. We never actually redirect the user! Why provide it to the URL here? It turns out, here's the answer:
+
+    // "This parameter is used for validation only (there is no actual redirection). The value of this parameter must exactly match the value of redirect_uri supplied when requesting the authorization code." (https://developer.spotify.com/documentation/general/guides/authorization/code-flow/). What a relief to finally know this!
+
+    body: `grant_type=refresh_token&refresh_token=${refreshToken}&redirect_uri=${redirectTo}`,
   };
   const accessToken = await fetch(tokenEndPoint, options)
   
@@ -38,7 +42,7 @@ exports.handler = async (event, context) => {
 
   const pleaseWork = `https://api.spotify.com/v1/artists/${event.queryStringParameters.id}/albums`;
 
-  return fetch(`${pleaseWork}`, {
+  return fetch(pleaseWork, {
     method: 'GET',
     headers: {
       Authorization: `Bearer ${accessToken}`,

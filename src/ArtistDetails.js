@@ -5,9 +5,16 @@ import { useDataContext } from './ContextProvider';
 import AlbumsList from './AlbumsList';
 import ConcertPage from './ConcertPage';
 import FavoritesButton from './FavoritesButton';
+import { isAlreadyAFave } from './utils';
 
 export default function ArtistDetails() {
-  const { handleFetchArtist, singleArtist, favorites, handleDeleteFavorite, handleAddFavorite } =
+  const {
+    handleFetchArtist,
+    singleArtist,
+    favorites,
+    handleDeleteFavorite,
+    handleAddFavorite,
+  } =
     useDataContext();
   const { id } = useParams();
 
@@ -15,8 +22,7 @@ export default function ArtistDetails() {
     handleFetchArtist(id);
   }, [id]); //eslint-disable-line
 
-  const alreadyFave =
-    favorites && favorites.find((favorite) => favorite.name === singleArtist.name);
+  const alreadyFave = isAlreadyAFave(favorites, singleArtist);
 
   return (
     <div className="artist-details">
@@ -31,9 +37,7 @@ export default function ArtistDetails() {
           <ConcertPage singleArtist={singleArtist} />
           <h3>Genres:</h3>
           <ul>
-            <li>{singleArtist.genres && singleArtist.genres[0]}</li>
-            <li>{singleArtist.genres && singleArtist.genres[1]}</li>
-            <li>{singleArtist.genres && singleArtist.genres[2]}</li>
+            {singleArtist.genres.map((genre, i)=> <li key={genre + i}>{genre}</li>)}
           </ul>
           <FavoritesButton
             alreadyFave={alreadyFave}

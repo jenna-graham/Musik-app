@@ -2,7 +2,8 @@ import React from 'react';
 
 import Button from '@mui/material/Button';
 
-export default function MaterialButtons({ onClick }) {
+// again, this should probably be singular
+export default function MaterialButton({ onClick }) {
   return (
     <Button
       variant="outlined"
