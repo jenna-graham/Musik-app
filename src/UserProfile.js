@@ -26,11 +26,13 @@ export default function UserProfile() {
       <div className='dropdown-container'>
         <div className="dropdown">
           <Select 
-            onChange={(e) => handleGetFavorites(e.value) } options={
-              userData.map((user) => {
+            onChange={(e) => handleGetFavorites(e.value) } 
+            options={
+              // nice intuiton, mapping the array directly into this `options` prop!
+              userData.map(({ user_name, user_id }) => {
                 return {
-                  label: user.user_name,
-                  value: user.user_id,
+                  label: user_name,
+                  value: user_id,
                 };
               })
             }

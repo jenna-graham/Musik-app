@@ -1,29 +1,26 @@
 import { useState, useContext, createContext } from 'react';
 
 import {
-  getUser,
   searchArtists,
   getFavorites,
   addFavorite,
   deleteFavorite,
   getAlbums,
   getArtist,
-  addUserName,
-  getUserProfile,
   getUserProfileById,
   getConcerts,
 } from './services/fetch-utils';
 
-const dataContext = createContext();
+// by convention, a Context's variable should be capitalized.
+const DataContext = createContext();
 
+// might be nice to split this into separate files. Not a huge save in space, but 
+// as the project gets bigger, a single mega-Provider gets increasingly difficult to maintain
 export default function ContextProvider({ children }) {
-  const [user, setUser] = useState(getUser());
   const [artists, setArtists] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [singleArtist, setSingleArtist] = useState([]);
   const [albums, setAlbums] = useState([]);
-  const [userProfile, setUserProfile] = useState([]);
-  const [userData, setUserData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [concerts, setConcert] = useState([]);
 
@@ -31,8 +28,6 @@ export default function ContextProvider({ children }) {
 
   
   const stateAndSetters = {
-    user,
-    setUser,
     artists,
     setArtists,
     handleArtistSearch,
@@ -44,11 +39,6 @@ export default function ContextProvider({ children }) {
     favorites,
     handleAddFavorite,
     handleDeleteFavorite,
-    handleProfileName,
-    userProfile,
-    setUserProfile,
-    userData,
-    handleUserProfile,
     loading,
     profileName,
     handleGetUserProfileById,
@@ -100,24 +90,14 @@ export default function ContextProvider({ children }) {
     setFavorites(updatedFavorite);
   }
 
-  async function handleProfileName(userName) {
-    const userProfile = await addUserName(userName);
-    setUserProfile(userProfile);
-  }
-
-  async function handleUserProfile(userName) {
-    const userData = await getUserProfile(userName);
-    setUserData(userData);
-  }
-
   async function handleFetchConcerts(keyword) {
     const concertInfo = await getConcerts(keyword);
     setConcert(concertInfo);
   }
 
-  return <dataContext.Provider value={stateAndSetters}>{children}</dataContext.Provider>;
+  return <DataContext.Provider value={stateAndSetters}>{children}</DataContext.Provider>;
 }
 
 export function useDataContext() {
-  return useContext(dataContext);
+  return useContext(DataContext);
 }

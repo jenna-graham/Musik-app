@@ -82,5 +82,6 @@ export async function getConcerts(keyword) {
   const raw = await fetch(`/.netlify/functions/ticketmaster?keyword=${keyword}`);
   const { _embedded } = await raw.json();
 
+  // nice work digging into this obviously ugly piece of data the API handed you.
   return _embedded.attractions[0];
 }

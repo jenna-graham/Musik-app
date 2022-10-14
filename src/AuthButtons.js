@@ -2,6 +2,7 @@ import React from 'react';
 
 import Button from '@mui/material/Button';
 
+// nice abstraction of your MUI stuff here, though I would call this component BasicButton (singular), not BasicButtons (plural) :)
 export default function BasicButtons({ onClick }) {
   return (
     <Button

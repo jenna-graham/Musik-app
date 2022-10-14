@@ -1,22 +1,20 @@
+/*
+Very nice work on this! So far as your react app is concerned, the only big change I'd like to see is how you manage your Buttons. It's a little uncomfortable to have them living in separate files, with so much copy/pasted between them--I'd rather you find a way for them to share space and data to make DRY-er code. Otherwise, this codebase shows a lot of sophisticated problem solving, and it's especially impressive that you were able to integrate a second API into the project so quickly. I primarily judge project code quality based on how I'd feel if I were asked to maintain this codebase in the future, and I can happily say this would be a delight to add features to and maintain.
+*/
+
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect, Link } from 'react-router-dom';
 
 import Auth from './Auth';
 import SearchPage from './SearchPage';
 import { useDataContext } from './ContextProvider';
-
-import './App.css';
-
 import FavoritesPage from './FavoritesPage';
-
 import ArtistDetails from './ArtistDetails';
-
 import AboutPage from './AboutPage';
-
 import HomePage from './HomePage';
-import { logOut } from './services/fetch-utils';
-
 import OutlinedButtons from './OutlinedButton';
+import { logOut } from './services/fetch-utils';
+import './App.css';
 
 export default function App() {
   const { user, setUser } = useDataContext();

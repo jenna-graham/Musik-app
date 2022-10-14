@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 
+// I'd want to see all these button components living in the same, or at least live together in the same folder. that way you can eaily reuse their shared behavior (width: 250px, for example)
 export default function DeleteButtons({ onClick, variant = 'outlined' }) {
   return (
     <Button
